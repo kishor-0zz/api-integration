@@ -1,0 +1,64 @@
+"use client"
+
+import Image from 'next/image'
+import React from 'react'
+import logoImg from '../../public/images/lws.svg'
+import searchImg from '../../public/images/search.svg'
+
+export default function layout({children}) {
+  return (
+    <>
+    <nav className="bg-slate-100 shadow-md">
+      <div className="max-w-7xl mx-auto px-5 lg:px-0 flex justify-between py-3 items-center">
+        
+        {/* Logo */}
+        <Image
+          src={logoImg}
+          alt="Logo"
+          width={123}
+          height={40}
+          priority
+        />
+
+        {/* Search Box */}
+        <div className="border border-slate-200 flex items-center bg-white h-10 px-5 rounded-lg text-sm focus-within:ring-2 focus-within:ring-emerald-200">
+          
+          <form>
+            <input
+              className="outline-none border-none mr-2"
+              type="search"
+              name="search"
+              placeholder="Search"
+            />
+          </form>
+
+          <Image
+            src={searchImg}
+            alt="Search"
+            width={20}
+            height={20}
+          />
+        </div>
+
+      </div>
+    </nav>
+    {children}
+    <section className="pt-6">
+            <div
+                className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex justify-between gap-2 border-t text-sm text-slate-400"
+            >
+                <div>Copyright 2022 Learn with Sumit.</div>
+                <div>
+                    <a
+                        href="https://youtube.com/learnwithsumit"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        YouTube Channel
+                    </a>
+                </div>
+            </div>
+    </section>
+    </>
+  )
+}
