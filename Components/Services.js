@@ -1,12 +1,14 @@
 
-
+import Image from 'next/image'
 import Link from 'next/link'
-
 import React from 'react'
 
+
+
+
+
+
 export default function Services({service}) {
-
-
 
   return (
       <div>
@@ -32,7 +34,7 @@ export default function Services({service}) {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto px-5 lg:px-0">
 
                 {
-                    service.videos.map((video)=>(
+                    service?.videos.map((video)=>(
                         <div video={video} key={video.id}>
                             <div className="w-full flex flex-col">
                                     <div className="relative">
@@ -47,17 +49,10 @@ export default function Services({service}) {
                                     </div>
 
                                     <div className="flex flex-row mt-2 gap-2">
-                                        <a href="#" className="shrink-0">
-                                            <img
-                                                src="https://avatars.githubusercontent.com/u/73503432?v=4"
-                                                className="rounded-full h-6 w-6"
-                                                alt="Learn with Sumit"
-                                            />
-                                        </a>
-
-                                        <div clas="flex flex-col">
                                         
-                                            <Link href={`/video/${video.id}`}> <p className=" text-sm font-semibold"> {video.title}  Video title</p> </Link>
+                                        <Image src={video.avatar} width={100} height={80} alt='Services'  />
+                                        <div clas="flex flex-col">
+                                            <Link href={`/service/${video.id}`}> <p className=" text-sm font-semibold"> {video.title}  Video title</p> </Link>
                                             <a className="text-gray-400 text-xs mt-2 hover:text-gray-600" href="#">{video.author}</a>
                                             <p className="text-gray-400 text-xs mt-1">
                                                 {video.views} . {video.date}
@@ -68,18 +63,11 @@ export default function Services({service}) {
                         </div>
                     ))
                 }
-
-
-
-                {/* {videoData.videos.map((service) => (
-                    <div key={video.id} video={video}>
-                        <Videos video={video} id={video.id} />
-                    </div>
-                ))} */}
-                {/* <!-- error section<div className="col-span-12">some error happened</div> --> */}
+                {/* <div className="col-span-12">some error happened</div> */}
             </div>
         </div>
-        {/* <!-- Video Grid --> */}
+
+
         {/* <!-- pagination--> */}
         <section className="pt-12">
             <div
